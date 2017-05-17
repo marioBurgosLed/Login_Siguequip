@@ -31,7 +31,7 @@ import java.util.HashMap;
 public class MainActivity extends Activity {
 
     // json object response url
-    private String urlJsonObj = "http://sigequip.esy.es/getLogin2.php";
+    private String urlJsonArry2 = "http://sigequip.esy.es/getLogin2.php";
 
     // json array response url
     private String urlJsonArry = "http://sigequip.esy.es/getLogin2.php";
@@ -61,7 +61,7 @@ public class MainActivity extends Activity {
 
 
         pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Please wait...");
+        pDialog.setMessage("Espere por favor...");
         pDialog.setCancelable(false);
 
         btnMakeObjectRequest.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +79,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 // making json array request
                 makeJsonArrayRequest();
+                //Loguearse();
             }
         });
 
@@ -87,9 +88,11 @@ public class MainActivity extends Activity {
     /*
     Metodo para loguearse
      */
+    int j=0;
     private void Loguearse() {
         showpDialog();
-        JsonArrayRequest req = new JsonArrayRequest(urlJsonArry, new Response.Listener<JSONArray>() {
+        //final int i=0;
+        JsonArrayRequest req = new JsonArrayRequest(urlJsonArry2, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 Log.d(TAG, response.toString());
@@ -104,19 +107,19 @@ public class MainActivity extends Activity {
                         String contra=person.getString("usuPass");
 
                         if(contra.equals(etPass.getText().toString())){
-
-                            Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                            startActivity(intent);
-
-                        }else{
-                            Toast.makeText(getApplicationContext(),"verifique su contraseña",Toast.LENGTH_SHORT).show();
-
+                            j=1;
                         }
-
+                    }
+                    if(j==1){
+                            Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(MainActivity.this,Main2Activity.class);
+                            startActivity(intent);
+                            j=0;
+                    }else{
+                        Toast.makeText(getApplicationContext(),"verifique su contraseña",Toast.LENGTH_SHORT).show();
                     }
 
-                    txtResponse.setText(jsonResponse);
+                    //txtResponse.setText(jsonResponse);
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(),
