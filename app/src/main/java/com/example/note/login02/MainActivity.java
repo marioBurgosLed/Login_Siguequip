@@ -1,9 +1,6 @@
 package com.example.note.login02;
 
 
-import com.example.note.login02.R;
-import com.example.note.login02.AppController;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,14 +16,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request.Method;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-
-import java.util.HashMap;
 
 public class MainActivity extends Activity {
 
@@ -55,7 +48,7 @@ public class MainActivity extends Activity {
 
         btnMakeObjectRequest = (Button) findViewById(R.id.btnObjRequest);
         btnMakeArrayRequest = (Button) findViewById(R.id.btnArrayRequest);
-        txtResponse = (TextView) findViewById(R.id.txtResponse);
+        txtResponse = (TextView) findViewById(R.id.txt);
         etUsuario=(EditText)findViewById(R.id.etNombre);
         etPass=(EditText)findViewById(R.id.etPass);
 

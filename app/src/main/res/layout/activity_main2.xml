@@ -13,25 +13,25 @@
         tools:layout_editor_absoluteY="8dp">
 
         <EditText
-            android:id="@+id/etUsuario"
+            android:id="@+id/etNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
             android:layout_marginTop="67dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:layout_marginRight="13dp"
-            android:layout_marginEnd="13dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/etPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/etUsuario"
-            android:layout_alignStart="@+id/etUsuario"
-            android:layout_below="@+id/etUsuario"
+            android:layout_alignLeft="@+id/etNombre"
+            android:layout_alignStart="@+id/etNombre"
+            android:layout_below="@+id/etNombre"
             android:layout_marginTop="41dp"
             android:ems="10"
             android:inputType="textPersonName" />
@@ -40,8 +40,8 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/etUsuario"
-            android:layout_toLeftOf="@+id/etUsuario"
+            android:layout_alignTop="@+id/etNombre"
+            android:layout_toLeftOf="@+id/etNombre"
             android:text="Usuario" />
 
         <TextView
@@ -52,6 +52,18 @@
             android:layout_toLeftOf="@+id/etPass"
             android:layout_toStartOf="@+id/etPass"
             android:text="Contraseña" />
+
+        <Button
+            android:id="@+id/btConsulta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btModificacion"
+            android:layout_alignBottom="@+id/btModificacion"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@+id/btModificacion"
+            android:layout_toRightOf="@+id/btModificacion"
+            android:text="cons" />
 
         <Button
             android:id="@+id/btAlta"
@@ -67,23 +79,31 @@
             android:id="@+id/btBaja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/btAlta"
-            android:layout_marginLeft="19dp"
-            android:layout_marginStart="19dp"
-            android:layout_toEndOf="@+id/btAlta"
+            android:text="Baja"
+            android:layout_alignBaseline="@+id/btAlta"
+            android:layout_alignBottom="@+id/btAlta"
             android:layout_toRightOf="@+id/btAlta"
-            android:text="Baja" />
+            android:layout_toEndOf="@+id/btAlta" />
 
         <Button
             android:id="@+id/btModificacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/btBaja"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_toEndOf="@+id/btBaja"
+            android:text="Modificacion"
+            android:layout_alignBaseline="@+id/btBaja"
+            android:layout_alignBottom="@+id/btBaja"
             android:layout_toRightOf="@+id/btBaja"
-            android:text="Modificacion" />
+            android:layout_toEndOf="@+id/btBaja" />
+
+        <TextView
+            android:id="@+id/txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/etPass"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/etPass"
+            android:layout_marginBottom="73dp"
+            android:text="TextView" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
