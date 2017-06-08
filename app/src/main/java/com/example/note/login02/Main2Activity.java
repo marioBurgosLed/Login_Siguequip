@@ -118,35 +118,20 @@ public class Main2Activity extends AppCompatActivity {
      */
     private void AltaRegistros() {
 
-            /*
-             Obtener valores actuales de los controles
-
-            final String titulo = titulo_input.getText().toString();
-            final String descripcion = descripcion_input.getText().toString();
-            final String fecha = fecha_text.getText().toString();
-            final String categoria = categoria_spinner.getSelectedItem().toString();
-            final String prioridad = prioridad_spinner.getSelectedItem().toString();
-            REGISTER_URL
-        */
             final String usuNombre=editTextUsername.getText().toString();
             final String usuPass= editTextPassword.getText().toString();
 
-
             HashMap<String, String> map = new HashMap<>();// Mapeo previo
-
             map.put("usuNombre", usuNombre);
             map.put("usuPass", usuPass);
 
-
             // Crear nuevo objeto Json basado en el mapa
             JSONObject jobject = new JSONObject(map);
-
             // Depurando objeto Json...
             Log.d(TAG, jobject.toString());
 
             // Actualizar datos en el servidor
         AppController.getInstance().addToRequestQueue(new JsonObjectRequest
-
                 (Request.Method.POST,REGISTER_URL,jobject,
                             new Response.Listener<JSONObject>() {
                                 @Override
@@ -183,117 +168,4 @@ public class Main2Activity extends AppCompatActivity {
 
 }
 
-/*
-    private void registerUser(){
-        final String username = editTextUsername.getText().toString().trim();
-        final String password = editTextPassword.getText().toString().trim();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, REGISTER_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Toast.makeText(Main2Activity.this,response,Toast.LENGTH_LONG).show();
-                        //Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_SHORT).show();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Main2Activity.this,error.toString(),Toast.LENGTH_LONG).show();
-                    }
-                }){
-            @Override
-            protected Map<String,String> getParams(){
-                Map<String,String> params = new HashMap<String, String>();
-                params.put(KEY_USERNAME,username);
-                params.put(KEY_PASSWORD,password);
-                return params;
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }*/
-
-
-/* private void registerUser(){
-     AppController.getInstance().addToRequestQueue(putRequest);
-
- /*   @Override
-    public void onClick(View v) {
-        if (v == buttonRegister) {
-            //registerUser();
-            //De acá para abajo es nuevo el código
-            final RequestQueue cola=Volley.newRequestQueue(this);
-            String REGISTER_URL = "http://sigequip.esy.es/Insert2.php";
-
-            StringRequest stringRequest=new StringRequest(Request.Method.POST, REGISTER_URL,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            editTextUsername = (EditText) findViewById(R.id.etNombre);
-                            editTextPassword = (EditText) findViewById(R.id.etPass);
-
-                            usuN=editTextUsername.getText().toString().trim();
-                            usuP=editTextUsername.getText().toString().trim();
-
-                            Toast.makeText(getApplicationContext(),"Ok",Toast.LENGTH_SHORT).show();
-
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
-                }
-            }
-            ){
-                @Override
-                public Map<String, String> getParams()
-                {
-                    Map<String, String>  params = new HashMap<String, String>();
-                    params.put("KEY_USERNAME", "usuN");
-                    params.put("KEY_PASSWORD", "usuP");
-                    return getParams();
-                }
-            };
-            cola.add(stringRequest);
-        }
-    }*/
-
-
-/*
-Ejemplo de método POST
-url = "http://httpbin.org/post";
-StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-    new Response.Listener<String>()
-    {
-        @Override
-        public void onResponse(String response) {
-            // response
-            Log.d("Response", response);
-        }
-    },
-    new Response.ErrorListener()
-    {
-         @Override
-         public void onErrorResponse(VolleyError error) {
-             // error
-             Log.d("Error.Response", response);
-       }
-    }
-) {
-    @Override
-    protected Map<String, String> getParams()
-    {
-            Map<String, String>  params = new HashMap<String, String>();
-            params.put("name", "Alif");
-            params.put("domain", "http://itsalif.info");
-
-            return params;
-    }
-};
-queue.add(postRequest);
-
-
-    }*/
 
